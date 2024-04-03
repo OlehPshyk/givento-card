@@ -6,6 +6,7 @@
   --rotate-angle: -105deg;
   --animation-duration: .8s;
   width: var(--card-width);
+  max-width: 100%;
   aspect-ratio: 0.78934;
   position: relative;
   cursor: pointer;
