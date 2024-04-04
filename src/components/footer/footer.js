@@ -4,8 +4,10 @@ import footer from './footer.module.scss';
 
 const Footer = () => (
   <footer className={footer.footer}>
-    <MadeIcon className={footer.madeIcon}/>
-    <a href="#" target="_blank" className={footer.appStoreIconLink}>
+    <a href="https://givento.io" target="_blank">
+      <MadeIcon className={footer.madeIcon}/>
+    </a>
+    <a href="https://apps.apple.com/us/app/birthday-countdown-reminder/id1640049062" target="_blank" className={footer.appStoreIconLink}>
       <AppStoreIcon className={footer.appStoreIcon}/>
     </a>
   </footer>
