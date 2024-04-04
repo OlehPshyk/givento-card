@@ -17,14 +17,14 @@ const allignClass = (align) => {
 }
 const Card = ({data}) => {
   // console.log("B data>>>", data)
-  const imageSrc = data.coverLink ? `${API_URL}/${data.coverLink}` : "/images/dummy_img.png"
+  const imageSrc = data?.coverLink ? `${API_URL}/${data.coverLink}` : "/images/dummy_img.png"
   return (
     <>
       <input id="cardCheckbox" type="checkbox" className={card.cardCheckbox}/>
       <label htmlFor="cardCheckbox" className={card.card}>
         <div className={card.cardContainer}>
-          <div className={`${card.text} ${card[allignClass(data.align)]}`}>
-            {data.text}
+          <div className={`${card.text} ${card[allignClass(data?.align)]}`}>
+            {data?.text || "some text here..."}
           </div>
         </div>
         <div className={card.flipped}></div>
