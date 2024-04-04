@@ -1,5 +1,7 @@
 import TapIcon from '../../assets/images/tap_icon.svg';
 import { API_URL } from "@/utils/constants";
+import { getCardDetails } from "@/utils/services";
+import pauseFunction from '@/utils/helpers';
 import card from './card.module.scss';
 
 
@@ -15,6 +17,7 @@ const allignClass = (align) => {
       return "x-center"
   }
 }
+
 const formatFont = (font) => {
   switch(font) {
     case "Sriracha":
@@ -27,9 +30,15 @@ const formatFont = (font) => {
       return "Sriracha"
   }
 }
-const Card = ({data}) => {
-  // console.log("B data>>>", data)
+
+const Card = async ({id, delay}) => {
+  let data = null
+  if (id) {
+    data = await getCardDetails(id)
+    const pause = await pauseFunction(delay);
+  }
   const imageSrc = data?.coverLink ? `${API_URL}/${data.coverLink}` : "/images/dummy_img.png"
+
   return (
     <>
       <input id="cardCheckbox" type="checkbox" className={card.cardCheckbox}/>
