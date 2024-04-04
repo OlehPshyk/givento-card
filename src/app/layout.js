@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Givento-card",
+  title: "Givento-cards",
   description: "Givento cards",
 };
 
