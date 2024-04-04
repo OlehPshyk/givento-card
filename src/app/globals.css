@@ -1,21 +1,14 @@
-:root {
+/* :root {} */
 
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-
-  }
-}
+/* @media (prefers-color-scheme: dark) {
+  :root {}
+} */
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
-
-/* html,
-body {} */
 
 body {
   color: #000;
@@ -42,6 +35,14 @@ a {
 }
 
 @font-face {
+  font-family: "Sriracha";
+  src: url("/fonts/Sriracha-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Alice";
   src: url("/fonts/Alice-Regular.woff2") format("woff2");
   font-style: normal;
@@ -49,4 +50,10 @@ a {
   font-display: swap;
 }
 
-
+@font-face {
+  font-family: "Futura";
+  src: url("/fonts/FuturaLT.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}

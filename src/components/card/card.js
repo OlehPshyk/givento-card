@@ -15,6 +15,18 @@ const allignClass = (align) => {
       return "x-center"
   }
 }
+const formatFont = (font) => {
+  switch(font) {
+    case "Sriracha":
+      return "Sriracha";
+    case "Alice":
+      return "Alice";
+    case "Futura":
+      return "Futura";
+    default:
+      return "Sriracha"
+  }
+}
 const Card = ({data}) => {
   // console.log("B data>>>", data)
   const imageSrc = data?.coverLink ? `${API_URL}/${data.coverLink}` : "/images/dummy_img.png"
@@ -23,7 +35,7 @@ const Card = ({data}) => {
       <input id="cardCheckbox" type="checkbox" className={card.cardCheckbox}/>
       <label htmlFor="cardCheckbox" className={card.card}>
         <div className={card.cardContainer}>
-          <div className={`${card.text} ${card[allignClass(data?.align)]}`}>
+          <div className={`${card.text} ${card[allignClass(data?.align)]}`} style={{fontFamily:formatFont(card.font)}}>
             {data?.text || "some text here..."}
           </div>
         </div>
