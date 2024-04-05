@@ -146,12 +146,12 @@
   .cardTapLabelClose {
     display: none;
   }
-  animation-duration: var(--animation-duration);
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+  // animation-duration: var(--animation-duration);
+  // animation-iteration-count: 1;
+  // animation-fill-mode: forwards;
   .cardCheckbox:checked ~ & {
-    animation-name: cardLabelanime;
-    animation-direction: normal;
+    // animation-name: cardLabelanime;
+    // animation-direction: normal;
     .cardTapLabelOpen {
       display: none;
     }
@@ -159,10 +159,10 @@
       display: block;
     }
   }
-  .cardReviewedCheckbox:checked + .cardCheckbox:not(:checked) ~ & {
-    animation-name: reversecardLabelanime;
-    animation-direction: reverse;
-  }
+  // .cardReviewedCheckbox:checked + .cardCheckbox:not(:checked) ~ & {
+  //   animation-name: reversecardLabelanime;
+  //   animation-direction: reverse;
+  // }
 }
 
 @keyframes labelanime {
@@ -271,19 +271,19 @@
   }
 }
 
-@keyframes cardLabelanime {
-  0%   {
-    padding-top: 0px;
-  }
-  100% {
-    padding-top: 22px;
-  }
-}
-@keyframes reversecardLabelanime {
-  0%   {
-    padding-top: 0px;
-  }
-  100% {
-    padding-top: 22px;
-  }
-}
+// @keyframes cardLabelanime {
+//   0%   {
+//     padding-top: 0px;
+//   }
+//   100% {
+//     padding-top: 22px;
+//   }
+// }
+// @keyframes reversecardLabelanime {
+//   0%   {
+//     padding-top: 0px;
+//   }
+//   100% {
+//     padding-top: 22px;
+//   }
+// }
