@@ -43,7 +43,7 @@ const Card = async ({id, delay}) => {
       imageSrc={imageSrc}
       text={data?.text || "some text here..."}
       xalign={allignClass(data?.align)}
-      font={formatFont(data.font)}
+      font={formatFont(data?.font)}
     />
   )
 }
