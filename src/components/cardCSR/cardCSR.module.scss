@@ -11,17 +11,24 @@
   aspect-ratio: 0.78934;
   position: relative;
   cursor: pointer;
-  .cardCheckbox:checked ~ &{
+  animation-duration: var(--animation-duration);
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  .cardCheckbox:checked ~ & {
     animation-name: labelanime;
-    animation-duration: var(--animation-duration);
-    animation-iteration-count: 1;
     animation-direction: normal;
-    animation-fill-mode: forwards;
+  }
+  .cardReviewedCheckbox:checked + .cardCheckbox:not(:checked) ~ & {
+    animation-name: reverselabelanime;
+    animation-direction: reverse;
   }
 }
+
+.cardReviewedCheckbox,
 .cardCheckbox {
   display: none;
 }
+
 .unflipped {
   position: absolute;
   top: 0;
@@ -30,12 +37,16 @@
   border-radius: 16px;
   overflow: hidden;
   transform-origin: 0 50%;
+  animation-duration: var(--animation-duration);
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
   .cardCheckbox:checked ~ .card & {
     animation-name: cardanime;
-    animation-duration: var(--animation-duration);
-    animation-iteration-count: 1;
     animation-direction: normal;
-    animation-fill-mode: forwards;
+  }
+  .cardReviewedCheckbox:checked + .cardCheckbox:not(:checked) ~ .card & {
+    animation-name: reversecardanime;
+    animation-direction: reverse;
   }
   .image {
     display: block;
@@ -60,12 +71,16 @@
   transform-origin: 0 50%;
   background: var(--flipped-gradient);
   box-shadow: 0px 8px 59px 0px var(--shadow-color);
+  animation-duration: var(--animation-duration);
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
   .cardCheckbox:checked ~ .card & {
     animation-name: backcardanime;
-    animation-duration: var(--animation-duration);
-    animation-iteration-count: 1;
     animation-direction: normal;
-    animation-fill-mode: forwards;
+  }
+  .cardReviewedCheckbox:checked + .cardCheckbox:not(:checked) ~ .card & {
+    animation-name: reversebackcardanime;
+    animation-direction: reverse;
   }
 }
 .cardContainer {
@@ -78,20 +93,26 @@
   background: linear-gradient(211.36deg, #FFFFFF 8.14%, #F4F4F4 100.07%);
   box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.15);
   transform-origin: 0 50%;
-  max-height: 413px;
+  // max-height: 413px;
+  // max-height: 456px;
+  animation-duration: var(--animation-duration);
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
   .cardCheckbox:checked ~ .card & {
     animation-name: cardContaineranime;
-    animation-duration: var(--animation-duration);
-    animation-iteration-count: 1;
     animation-direction: normal;
-    animation-fill-mode: forwards;
+  }
+  .cardReviewedCheckbox:checked + .cardCheckbox:not(:checked) ~ .card & {
+    animation-name: reversecardContaineranime;
+    animation-direction: reverse;
   }
 }
 .text {
   padding: 12px;
   // 22/1.1=20px
   font-size: 20px;
-  line-height: 1.81818;;
+  // line-height: 1.81818;
+  line-height: 2;
   letter-spacing: -0.4px;
   word-break: break-word;
   min-height: 0;
@@ -125,18 +146,22 @@
   .cardTapLabelClose {
     display: none;
   }
+  animation-duration: var(--animation-duration);
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
   .cardCheckbox:checked ~ & {
     animation-name: cardLabelanime;
-    animation-duration: var(--animation-duration);
-    animation-iteration-count: 1;
     animation-direction: normal;
-    animation-fill-mode: forwards;
     .cardTapLabelOpen {
       display: none;
     }
     .cardTapLabelClose {
       display: block;
     }
+  }
+  .cardReviewedCheckbox:checked + .cardCheckbox:not(:checked) ~ & {
+    animation-name: reversecardLabelanime;
+    animation-direction: reverse;
   }
 }
 
@@ -148,6 +173,15 @@
     transform: translateX(-16px);
   }
 }
+@keyframes reverselabelanime {
+  0%   {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-16px);
+  }
+}
+
 @keyframes backcardanime {
   0%   {
     transform: var(--closed-scale) perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
@@ -158,6 +192,17 @@
     box-shadow: -6px -3px 30px 0px var(--shadow-color-open);
   }
 }
+@keyframes reversebackcardanime {
+  0%   {
+    transform: var(--closed-scale) perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
+    box-shadow: 0px 8px 59px 0px var(--shadow-color);
+  }
+  100% {
+    transform: var(--open-scale) perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
+    box-shadow: -6px -3px 30px 0px var(--shadow-color-open);
+  }
+}
+
 @keyframes cardanime {
   0%   {
     transform: var(--closed-scale) perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
@@ -171,7 +216,29 @@
     backface-visibility: hidden;
   }
 }
+@keyframes reversecardanime {
+  0%   {
+    transform: var(--closed-scale) perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
+    backface-visibility: visible;
+  }
+  50%  {
+    backface-visibility: hidden;
+  }
+  100% {
+    transform: var(--open-scale) perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
+    backface-visibility: hidden;
+  }
+}
+
 @keyframes cardContaineranime {
+  0%   {
+    transform: var(--closed-scale);
+  }
+  100% {
+    transform: var(--open-scale);
+  }
+}
+@keyframes reversecardContaineranime {
   0%   {
     transform: var(--closed-scale);
   }
@@ -181,6 +248,14 @@
 }
 
 @keyframes cardLabelanime {
+  0%   {
+    padding-top: 0px;
+  }
+  100% {
+    padding-top: 22px;
+  }
+}
+@keyframes reversecardLabelanime {
   0%   {
     padding-top: 0px;
   }
