@@ -11,6 +11,13 @@
   aspect-ratio: 0.78934;
   position: relative;
   cursor: pointer;
+  .cardCheckbox:checked ~ &{
+    animation-name: labelanime;
+    animation-duration: var(--animation-duration);
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+  }
 }
 .cardCheckbox {
   display: none;
@@ -133,6 +140,14 @@
   }
 }
 
+@keyframes labelanime {
+  0%   {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-16px);
+  }
+}
 @keyframes backcardanime {
   0%   {
     transform: var(--closed-scale) perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
