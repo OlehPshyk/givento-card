@@ -1,4 +1,6 @@
-/* :root {} */
+:root {
+  --animation-duration: 0.8s;
+}
 
 /* @media (prefers-color-scheme: dark) {
   :root {}

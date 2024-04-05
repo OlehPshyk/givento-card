@@ -4,7 +4,8 @@
   --flipped-gradient: linear-gradient(161.57deg, #F5F5F5 2.93%, #ECECEC 56.66%, #EAEAEA 69.67%);
   --card-width: 326px;
   --rotate-angle: -105deg;
-  --animation-duration: .8s;
+  --closed-scale: scale(1, 1);
+  --open-scale: scale(1.09815, 1.10411);
   width: var(--card-width);
   max-width: 100%;
   aspect-ratio: 0.78934;
@@ -22,16 +23,12 @@
   border-radius: 16px;
   overflow: hidden;
   transform-origin: 0 50%;
-  // transform: none;
-  // transition: var(--animation-duration) 1s linear;
-  // backface-visibility: visible;
   .cardCheckbox:checked ~ .card & {
     animation-name: cardanime;
     animation-duration: var(--animation-duration);
     animation-iteration-count: 1;
     animation-direction: normal;
     animation-fill-mode: forwards;
-    // transform: scale(1) perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
   }
   .image {
     display: block;
@@ -56,17 +53,12 @@
   transform-origin: 0 50%;
   background: var(--flipped-gradient);
   box-shadow: 0px 8px 59px 0px var(--shadow-color);
-  // transform: none;
-  // box-shadow: 0px 8px 59px 0px var(--shadow-color);
-  // transition: all var(--animation-duration) linear;
   .cardCheckbox:checked ~ .card & {
     animation-name: backcardanime;
     animation-duration: var(--animation-duration);
     animation-iteration-count: 1;
     animation-direction: normal;
     animation-fill-mode: forwards;
-    // transform: scale(1) perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
-    // box-shadow: -6px -3px 30px 0px var(--shadow-color-open);
   }
 }
 .cardContainer {
@@ -74,7 +66,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // align-items: center;
   padding: 12px;
   border-radius: 16px;
   background: linear-gradient(211.36deg, #FFFFFF 8.14%, #F4F4F4 100.07%);
@@ -90,15 +81,15 @@
   }
 }
 .text {
-  // font-family: Alice;
   padding: 12px;
   font-size: 22px;
-  line-height: 1.1;
+  line-height: 1.82;
   letter-spacing: -0.4px;
   word-break: break-word;
   min-height: 0;
   overflow: hidden;
   flex: 0 1 auto;
+  user-select: none;
   &.x-center {
     text-align: center;
   }
@@ -119,6 +110,7 @@
   font-size: 17px;
   line-height: 20px;
   letter-spacing: -0.4px;
+  user-select: none;
   .cardTapLabelOpen {
     display: block;
   }
@@ -126,6 +118,11 @@
     display: none;
   }
   .cardCheckbox:checked ~ & {
+    animation-name: cardLabelanime;
+    animation-duration: var(--animation-duration);
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
     .cardTapLabelOpen {
       display: none;
     }
@@ -137,32 +134,41 @@
 
 @keyframes backcardanime {
   0%   {
-    transform: scale(1) perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
+    transform: var(--closed-scale) perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
     box-shadow: 0px 8px 59px 0px var(--shadow-color);
   }
   100% {
-    transform: scale(1.01) perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
+    transform: var(--open-scale) perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
     box-shadow: -6px -3px 30px 0px var(--shadow-color-open);
   }
 }
 @keyframes cardanime {
   0%   {
-    transform: scale(1) perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
+    transform: var(--closed-scale) perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
     backface-visibility: visible;
   }
   50%  {
     backface-visibility: hidden;
   }
   100% {
-    transform: scale(1.01) perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
+    transform: var(--open-scale) perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
     backface-visibility: hidden;
   }
 }
 @keyframes cardContaineranime {
   0%   {
-    transform: scale(1);
+    transform: var(--closed-scale);
   }
   100% {
-    transform: scale(1.01);
+    transform: var(--open-scale);
+  }
+}
+
+@keyframes cardLabelanime {
+  0%   {
+    padding-top: 0px;
+  }
+  100% {
+    padding-top: 22px;
   }
 }
