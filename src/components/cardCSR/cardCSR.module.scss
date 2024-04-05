@@ -4,9 +4,9 @@
   --flipped-gradient: linear-gradient(161.57deg, #F5F5F5 2.93%, #ECECEC 56.66%, #EAEAEA 69.67%);
   --card-width: 326px;
   --rotate-angle: -105deg;
-  --closed-scale: scale(1, 1);
+  // --closed-scale: scale(1, 1);
   // --open-scale: scale(1.09815, 1.10411);
-  --open-scale: scale(1.09815, 1.01785);
+  // --open-scale: scale(1.098159, 1.104116);
   width: var(--card-width);
   max-width: 100%;
   aspect-ratio: 0.78934;
@@ -15,7 +15,6 @@
   animation-duration: var(--animation-duration);
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  max-height: 413px;
   .cardCheckbox:checked ~ & {
     animation-name: labelanime;
     animation-direction: normal;
@@ -95,7 +94,6 @@
   background: linear-gradient(211.36deg, #FFFFFF 8.14%, #F4F4F4 100.07%);
   box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.15);
   transform-origin: 0 50%;
-  // max-height: 413px;
   animation-duration: var(--animation-duration);
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -111,9 +109,10 @@
 .text {
   padding: 12px;
   // 22/1.1=20px
-  font-size: 20px;
+  // font-size: 20px;
   // line-height: 1.81818;
   line-height: 2;
+  line-height: 1.8181;
   letter-spacing: -0.4px;
   word-break: break-word;
   min-height: 0;
@@ -169,94 +168,106 @@
 @keyframes labelanime {
   0%   {
     transform: translateX(0);
-    max-height: 413px;
   }
   100% {
     transform: translateX(-16px);
-    max-height: 456px;
   }
 }
 @keyframes reverselabelanime {
   0%   {
     transform: translateX(0);
-    max-height: 413px;
   }
   100% {
     transform: translateX(-16px);
-    max-height: 456px;
   }
 }
 
 @keyframes backcardanime {
   0%   {
-    transform: var(--closed-scale) perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
+    transform: perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
     box-shadow: 0px 8px 59px 0px var(--shadow-color);
+    height: 413px;
+    width: 326px;
   }
   100% {
-    transform: var(--open-scale) perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
+    transform: perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
     box-shadow: -6px -3px 30px 0px var(--shadow-color-open);
+    height: 456px;
+    width: 358px;
   }
 }
 @keyframes reversebackcardanime {
   0%   {
-    transform: var(--closed-scale) perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
+    transform: perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
     box-shadow: 0px 8px 59px 0px var(--shadow-color);
+    height: 413px;
+    width: 326px;
   }
   100% {
-    transform: var(--open-scale) perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
+    transform: perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
     box-shadow: -6px -3px 30px 0px var(--shadow-color-open);
+    height: 456px;
+    width: 358px;
   }
 }
 
 @keyframes cardanime {
   0%   {
-    transform: var(--closed-scale) perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
+    transform: perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
     backface-visibility: visible;
-    // max-height: 413px;
+    height: 413px;
+    width: 326px;
   }
   50%  {
     backface-visibility: hidden;
   }
   100% {
-    transform: var(--open-scale) perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
+    transform: perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
     backface-visibility: hidden;
-    // max-height: 456px;
+    height: 456px;
+    width: 358px;
   }
 }
 @keyframes reversecardanime {
   0%   {
-    transform: var(--closed-scale) perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
+    transform: perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
     backface-visibility: visible;
-    // max-height: 413px;
+    height: 413px;
+    width: 326px;
   }
   50%  {
     backface-visibility: hidden;
   }
   100% {
-    transform: var(--open-scale) perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
+    transform: perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
     backface-visibility: hidden;
-    // max-height: 456px;
+    height: 456px;
+    width: 358px;
   }
 }
 
 @keyframes cardContaineranime {
   0%   {
-    transform: var(--closed-scale);
-    // max-height: 413px;
+    height: 413px;
+    width: 326px;
+    font-size: 20px;
   }
   100% {
-    transform: var(--open-scale);
-    // max-height: 456px;
+    height: 456px;
+    width: 358px;
+    font-size: 22px;
   }
 }
 @keyframes reversecardContaineranime {
   0%   {
-    transform: var(--closed-scale);
-    // max-height: 413px;
+    height: 413px;
+    width: 326px;
+    font-size: 20px;
   }
   100% {
-    transform: var(--open-scale);
-    // max-height: 456px;
+    height: 456px;
+    width: 358px;
+    font-size: 22px;
   }
 }
 
