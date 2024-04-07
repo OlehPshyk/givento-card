@@ -3,13 +3,14 @@
   --shadow-color-open: rgba(0, 0, 0, 0.1);
   --flipped-gradient: linear-gradient(161.57deg, #F5F5F5 2.93%, #ECECEC 56.66%, #EAEAEA 69.67%);
   --card-width: 326px;
+  --card-scaled-width: 358px;
+  --card-height: 413px;
+  --card-scaled-height: 456px;
   --rotate-angle: -105deg;
-  // --closed-scale: scale(1, 1);
-  // --open-scale: scale(1.09815, 1.10411);
-  // --open-scale: scale(1.098159, 1.104116);
   width: var(--card-width);
+  height: var(--card-height);
+  // aspect-ratio: 0.78934;
   max-width: 100%;
-  aspect-ratio: 0.78934;
   position: relative;
   cursor: pointer;
   animation-duration: var(--animation-duration);
@@ -109,8 +110,6 @@
 .text {
   padding: 12px;
   // 22/1.1=20px
-  // font-size: 20px;
-  // line-height: 1.81818;
   line-height: 2;
   line-height: 1.8181;
   letter-spacing: -0.4px;
@@ -146,12 +145,7 @@
   .cardTapLabelClose {
     display: none;
   }
-  // animation-duration: var(--animation-duration);
-  // animation-iteration-count: 1;
-  // animation-fill-mode: forwards;
   .cardCheckbox:checked ~ & {
-    // animation-name: cardLabelanime;
-    // animation-direction: normal;
     .cardTapLabelOpen {
       display: none;
     }
@@ -159,26 +153,30 @@
       display: block;
     }
   }
-  // .cardReviewedCheckbox:checked + .cardCheckbox:not(:checked) ~ & {
-  //   animation-name: reversecardLabelanime;
-  //   animation-direction: reverse;
-  // }
 }
 
 @keyframes labelanime {
   0%   {
     transform: translateX(0);
+    width: var(--card-width);
+    height: var(--card-height);
   }
   100% {
     transform: translateX(-16px);
+    width: var(--card-scaled-width);
+    height: var(--card-scaled-height);
   }
 }
 @keyframes reverselabelanime {
   0%   {
     transform: translateX(0);
+    width: var(--card-width);
+    height: var(--card-height);
   }
   100% {
     transform: translateX(-16px);
+    width: var(--card-scaled-width);
+    height: var(--card-scaled-height);
   }
 }
 
@@ -186,28 +184,20 @@
   0%   {
     transform: perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
     box-shadow: 0px 8px 59px 0px var(--shadow-color);
-    height: 413px;
-    width: 326px;
   }
   100% {
     transform: perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
     box-shadow: -6px -3px 30px 0px var(--shadow-color-open);
-    height: 456px;
-    width: 358px;
   }
 }
 @keyframes reversebackcardanime {
   0%   {
     transform: perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
     box-shadow: 0px 8px 59px 0px var(--shadow-color);
-    height: 413px;
-    width: 326px;
   }
   100% {
     transform: perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
     box-shadow: -6px -3px 30px 0px var(--shadow-color-open);
-    height: 456px;
-    width: 358px;
   }
 }
 
@@ -215,8 +205,6 @@
   0%   {
     transform: perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
     backface-visibility: visible;
-    height: 413px;
-    width: 326px;
   }
   50%  {
     backface-visibility: hidden;
@@ -224,16 +212,12 @@
   100% {
     transform: perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
     backface-visibility: hidden;
-    height: 456px;
-    width: 358px;
   }
 }
 @keyframes reversecardanime {
   0%   {
     transform: perspective(calc(var(--card-width) * 3)) rotateY(0deg) translateZ(0px);
     backface-visibility: visible;
-    height: 413px;
-    width: 326px;
   }
   50%  {
     backface-visibility: hidden;
@@ -241,49 +225,39 @@
   100% {
     transform: perspective(calc(var(--card-width) * 3)) rotateY(var(--rotate-angle)) translateZ(0px);
     backface-visibility: hidden;
-    height: 456px;
-    width: 358px;
   }
 }
 
 @keyframes cardContaineranime {
   0%   {
-    height: 413px;
-    width: 326px;
     font-size: 20px;
   }
   100% {
-    height: 456px;
-    width: 358px;
     font-size: 22px;
   }
 }
 @keyframes reversecardContaineranime {
   0%   {
-    height: 413px;
-    width: 326px;
     font-size: 20px;
   }
   100% {
-    height: 456px;
-    width: 358px;
     font-size: 22px;
   }
 }
 
-// @keyframes cardLabelanime {
-//   0%   {
-//     padding-top: 0px;
-//   }
-//   100% {
-//     padding-top: 22px;
-//   }
-// }
-// @keyframes reversecardLabelanime {
-//   0%   {
-//     padding-top: 0px;
-//   }
-//   100% {
-//     padding-top: 22px;
-//   }
-// }
+@keyframes cardLabelanime {
+  0%   {
+    padding-top: 0px;
+  }
+  100% {
+    padding-top: 22px;
+  }
+}
+@keyframes reversecardLabelanime {
+  0%   {
+    padding-top: 0px;
+  }
+  100% {
+    padding-top: 22px;
+  }
+}
