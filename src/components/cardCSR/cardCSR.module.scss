@@ -157,24 +157,20 @@
 
 @keyframes labelanime {
   0%   {
-    transform: translateX(0);
     width: var(--card-width);
     height: var(--card-height);
   }
   100% {
-    transform: translateX(-16px);
     width: var(--card-scaled-width);
     height: var(--card-scaled-height);
   }
 }
 @keyframes reverselabelanime {
   0%   {
-    transform: translateX(0);
     width: var(--card-width);
     height: var(--card-height);
   }
   100% {
-    transform: translateX(-16px);
     width: var(--card-scaled-width);
     height: var(--card-scaled-height);
   }
