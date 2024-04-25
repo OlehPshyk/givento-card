@@ -8,8 +8,9 @@ import TapIcon from '../../assets/images/tap_icon.svg';
 import card from './cardCSR.module.scss';
 
 const CardCSR = ({imageSrc, text, xalign, font}) => {
+  const isRealImageLoading = imageSrc !== "/images/dummy_img.png"
   const [cardReviewed, setCardReviewed] = useState(false)
-  const [imageLoading, setImageLoading] = useState(true);
+  const [imageLoading, setImageLoading] = useState(isRealImageLoading);
   const handleCardClick = () => {
     // alert("Clicked card!");
     setCardReviewed(true);
@@ -22,7 +23,7 @@ const CardCSR = ({imageSrc, text, xalign, font}) => {
   }
   return (
     <>
-      <input id="cardReviewedCheckbox" type="checkbox" className={card.cardReviewedCheckbox} checked={cardReviewed}/>
+      <input id="cardReviewedCheckbox" type="checkbox" className={card.cardReviewedCheckbox} checked={cardReviewed} readOnly/>
       <input id="cardCheckbox" type="checkbox" className={card.cardCheckbox}/>
       <label htmlFor="cardCheckbox" className={card.card} onClick={handleCardClick}>
         <div className={card.cardContainer}>
