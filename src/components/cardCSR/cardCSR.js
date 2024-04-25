@@ -1,14 +1,24 @@
 "use client"
 
 import {useState} from 'react';
+import Image from 'next/image'
+import Loading from '@/components/loading/loading';
 import TapIcon from '../../assets/images/tap_icon.svg';
+
 import card from './cardCSR.module.scss';
 
 const CardCSR = ({imageSrc, text, xalign, font}) => {
   const [cardReviewed, setCardReviewed] = useState(false)
+  const [imageLoading, setImageLoading] = useState(true);
   const handleCardClick = () => {
     // alert("Clicked card!");
     setCardReviewed(true);
+  }
+  // Safari problem onLoad when image already in cache
+  const uniqQuery = (new Date).getTime()
+  const uniqueImgSrc = `${imageSrc}?${uniqQuery}`
+  const handleImageLoaded = () => {
+    setTimeout(() => setImageLoading(false), 500)
   }
   return (
     <>
@@ -22,7 +32,15 @@ const CardCSR = ({imageSrc, text, xalign, font}) => {
         </div>
         <div className={card.flipped}></div>
         <div className={card.unflipped}>
-          <img className={card.image} src={imageSrc} alt="card" />
+          <img
+            className={`${card.image} ${imageLoading ? '' : card.active}`}
+            src={uniqueImgSrc}
+            alt="card"
+            onLoad={handleImageLoaded}
+          />
+          <div className={`${card.loader} ${imageLoading ? card.active : ''}`}>
+            <Loading/>
+          </div>
         </div>
       </label>
       <label htmlFor="cardCheckbox" className={card.cardTapLabel} onClick={handleCardClick}>
