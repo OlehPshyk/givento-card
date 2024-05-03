@@ -9,6 +9,7 @@ const Loading = () =>  {
     width={250}
     height={141}
     className={styles.loading}
+    unoptimized={true}
     priority
   />
 }

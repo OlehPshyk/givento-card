@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 export async function getCardDetails(id) {
   const res = await fetch(`${API_URL}/cards/${id}`, {
     method: "GET",
-    cache: 'no-store',
+    cache: 'no-cache',
     headers: {
       "Content-Type": "application/json",
     },

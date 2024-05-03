@@ -19,14 +19,14 @@ const allignClass = (align) => {
 
 const formatFont = (font) => {
   switch(font) {
-    case "Sriracha":
-      return "Sriracha";
-    case "Alice":
-      return "Alice";
-    case "Futura":
-      return "Futura";
+    case "Sriracha-Regular":
+      return {fontFamily: 'Sriracha', fontWeight: 400}
+    case "Courgette-Regular":
+      return {fontFamily: 'Courgette', fontWeight: 400}
+    case "JosefinSans-Medium":
+      return {fontFamily: 'JosefinSans', fontWeight: 500}
     default:
-      return "Sriracha"
+      return {fontFamily: 'Sriracha', fontWeight: 400}
   }
 }
 

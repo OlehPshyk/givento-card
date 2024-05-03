@@ -5,8 +5,25 @@
   flex-direction: column;
   gap: 16px;
   align-items: center;
-  padding: 0 20px 20px;
+  padding: 0 20px 60px;
   @media screen and (min-width: 1200px) {
     padding: 0 32px 32px;
+  }
+  @media screen and (max-height: 640px) {
+    padding: 0 32px 10px;
+    min-height: unset;
+    gap: 10px;
+  }
+  @media screen and (max-height: 590px) {
+    flex: 0 1 auto;
+    padding: 0 32px 2px;
+    min-height: unset;
+    gap: 0;
+  }
+  .madeIcon {
+    order: 1;
+    @media screen and (min-width: 1200px) {
+      order: 0;
+    }
   }
 }

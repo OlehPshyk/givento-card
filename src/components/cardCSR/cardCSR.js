@@ -1,7 +1,6 @@
 "use client"
 
 import {useState} from 'react';
-import Image from 'next/image'
 import Loading from '@/components/loading/loading';
 import TapIcon from '../../assets/images/tap_icon.svg';
 
@@ -12,7 +11,6 @@ const CardCSR = ({imageSrc, text, xalign, font}) => {
   const [cardReviewed, setCardReviewed] = useState(false)
   const [imageLoading, setImageLoading] = useState(isRealImageLoading);
   const handleCardClick = () => {
-    // alert("Clicked card!");
     setCardReviewed(true);
   }
   // Safari problem onLoad when image already in cache
@@ -21,13 +19,14 @@ const CardCSR = ({imageSrc, text, xalign, font}) => {
   const handleImageLoaded = () => {
     setTimeout(() => setImageLoading(false), 500)
   }
+
   return (
     <>
       <input id="cardReviewedCheckbox" type="checkbox" className={card.cardReviewedCheckbox} checked={cardReviewed} readOnly/>
       <input id="cardCheckbox" type="checkbox" className={card.cardCheckbox}/>
       <label htmlFor="cardCheckbox" className={card.card} onClick={handleCardClick}>
         <div className={card.cardContainer}>
-          <div className={`${card.text} ${card[xalign]}`} style={{fontFamily:font}}>
+          <div className={`${card.text} ${card[xalign]}`} style={{...font}}>
             {text}
           </div>
         </div>

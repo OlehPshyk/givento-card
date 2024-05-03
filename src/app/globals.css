@@ -33,7 +33,7 @@ a {
     color-scheme: dark;
   }
 }
-
+/* app */
 @font-face {
   font-family: "SF Pro Display";
   src: url("../assets/fonts/sf-pro-display_regular.woff2") format("woff2");
@@ -42,6 +42,7 @@ a {
   font-display: swap;
 }
 
+/* postcards */
 @font-face {
   font-family: "Sriracha";
   src: url("/fonts/Sriracha-Regular.woff2") format("woff2");
@@ -49,8 +50,31 @@ a {
   font-weight: 400;
   font-display: swap;
 }
-
 @font-face {
+  font-family: "Courgette";
+  src: url("/fonts/Courgette-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JosefinSans";
+  src: url("/fonts/josefin-sans-normal-500.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+
+/* @font-face {
+  font-family: "JosefinSans";
+  src: url("/fonts/JosefinSans-SemiBold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+} */
+
+/* @font-face {
   font-family: "Alice";
   src: url("/fonts/Alice-Regular.woff2") format("woff2");
   font-style: normal;
@@ -64,4 +88,4 @@ a {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-}
+} */

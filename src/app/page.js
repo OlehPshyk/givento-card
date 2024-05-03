@@ -2,7 +2,7 @@ import Card from '@/components/card/card';
 import Footer from '@/components/footer/footer';
 import { Suspense } from 'react'
 import CardLoader from '@/components/cardLoader/cardLoader';
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 
 export const revalidate = 0
 export const dynamic = 'force-dynamic'
